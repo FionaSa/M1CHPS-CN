@@ -1,4 +1,4 @@
-exec('./erreurs.sci')
+exec('./functions/erreurs.sci')
 
 
 [erreur_ar,erreur_av]=erreurs(3)
