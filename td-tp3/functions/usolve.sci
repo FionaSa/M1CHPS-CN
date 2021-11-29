@@ -1,5 +1,5 @@
 function [x]= usolve(U,b)
-    [n,n] = size(U)
+    n = size(U,'r')
     x = zeros(n)
     x(n) = b(n)/U(n,n)
     for i = n -1 : -1 : 1

@@ -1,5 +1,5 @@
 function [x] = lsolve(L,b)
-    [n,n] = size(L)
+    n = size(L,'r')
     x = zeros(n)
     x(1) = b(1)/L(1,1)
     for i = 2 : n

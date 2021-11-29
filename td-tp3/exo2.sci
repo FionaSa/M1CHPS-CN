@@ -1,7 +1,7 @@
 exec('./functions/usolve.sci')
 exec('./functions/lsolve.sci')
 
-A = rand (5,5)
+A = rand(5,5)
 
 L = tril(A)
 

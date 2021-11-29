@@ -1,4 +1,6 @@
-function [C]= matmat3b(A,B,m,n,p)
+function [C]= matmat3b(A,B)
+    [m,n] = size(A)
+    p = size(B,'r')
     C = zeros(m,n)
     for i = 1 : m
         for j = 1 : n
