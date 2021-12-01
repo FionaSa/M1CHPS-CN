@@ -1,4 +1,9 @@
-atomsSystemUpdate()
+//atomsSystemUpdate()
 atomsInstall("scibench")
 
-A = scibench_poissonA(5);
+n = 500
+
+//stacksize("max");
+A = scibench_poissonA(n);
+
+PlotSparse(A)

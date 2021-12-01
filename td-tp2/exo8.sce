@@ -6,6 +6,12 @@ A = rand(3,3)
 B = rand(3,3)
 disp("Résultat "+string(A)+" * "+string(B)+"nb (3) = "+string(matmat3b(A,B)))
 
+disp(matmat3b(A,B) == matmat2b(A,B))
+disp(matmat3b(A,B) == matmat1b(A,B))
+x1 = []
+x2 = []
+x3 = []
+y = []
 // Mesures de perf avec 3 boucles
 
 disp("3 boucles")
@@ -17,7 +23,8 @@ for i = 1 : 10
 end
 avg_3_3 = avg_3_3/10
 disp("    3 = "+string(avg_3_3))
-
+x1($+1) = avg_3_3
+y($+1) = 3
 avg_3_10 = 0
 for i = 1 : 10
     tic()
@@ -27,6 +34,8 @@ end
 avg_3_10 = avg_3_10/10
 disp("    10 = "+string(avg_3_10))
 
+x1($+1) = avg_3_10
+y($+1) = 10
 
 avg_3_100 = 0
 for i = 1 : 10
@@ -36,7 +45,8 @@ for i = 1 : 10
 end    
 avg_3_100 = avg_3_100/10
 disp("    100 = "+string(avg_3_100))
-
+x1($+1) = avg_3_10
+y($+1) = 100
 /*
 avg = 0
 for i = 1 : 10
@@ -58,6 +68,9 @@ end
 avg_2_3= avg_2_3/10
 disp("    3 = "+string(avg_2_3))
 
+x2($+1) = avg_2_3
+
+
 avg_2_10 = 0
 for i = 1 : 10
     tic()
@@ -67,6 +80,8 @@ end
 avg_2_10 = avg_2_10/10
 disp("    10 = "+string(avg_2_10))
 
+x2($+1) = avg_2_10
+
 avg_2_100 = 0
 for i = 1 : 10
     tic()
@@ -75,6 +90,8 @@ for i = 1 : 10
 end    
 avg_2_100 = avg_2_100/10
 disp("    100 = "+string(avg_2_100))
+
+x2($+1) = avg_2_100
 
 /*
 avg = 0
@@ -97,6 +114,8 @@ end
 avg_1_3 = avg_1_3/10
 disp("    3 = "+string(avg_1_3))
 
+x3($+1) = avg_1_3
+
 avg_1_10 = 0
 for i = 1 : 10
     tic()
@@ -106,6 +125,8 @@ end
 avg_1_10 = avg_1_10/10
 disp("    10 = "+string(avg_1_10))
 
+x3($+1) = avg_1_10
+
 avg_1_100 = 0
 for i = 1 : 10
     tic()
@@ -114,6 +135,8 @@ for i = 1 : 10
 end    
 avg_1_100 = avg_1_100/10
 disp("    100 = "+string(avg_1_100))
+
+x3($+1) = avg_1_100
 
 disp("Comparaison entre 1 boucle et 2 boucles (1/2)")
 
@@ -130,6 +153,16 @@ disp("100 elements : "+string((avg_3_100/avg_1_100)*100)+"%")
 disp("Evolution 3 boucles en fonction des différentes tailles ")
 disp("3-10 elements(3/10) : "+string((avg_3_3/avg_3_10)*100)+"%")
 disp("10-100 elements (10/100) : "+string((avg_3_10/avg_3_100)*100)+"%")
+
+scf(0);
+plot(y,x1,'r')
+plot(y,x2,'g')
+plot(y,x3)
+xgrid
+xlabel('Nbre matrices')
+ylabel('Temps execution')
+legend('1 boucle','2 boucles','3 boucles',1)
+xs2pdf(gcf(),'foo.pdf');
 /*
 avg = 0
 for i = 1 : 10
