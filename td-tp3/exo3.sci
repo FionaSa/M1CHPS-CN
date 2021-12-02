@@ -9,3 +9,5 @@ x1 = A\b
 x2 = gausskij3b(A,b)
 
 disp("x1 = "+string(x1)+" x2 = "+string(x2))
+
+disp(x1==x2)

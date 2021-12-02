@@ -45,7 +45,7 @@ for i = 1 : 10
 end    
 avg_3_100 = avg_3_100/10
 disp("    100 = "+string(avg_3_100))
-x1($+1) = avg_3_10
+x1($+1) = avg_3_100
 y($+1) = 100
 /*
 avg = 0
@@ -154,6 +154,11 @@ disp("Evolution 3 boucles en fonction des différentes tailles ")
 disp("3-10 elements(3/10) : "+string((avg_3_3/avg_3_10)*100)+"%")
 disp("10-100 elements (10/100) : "+string((avg_3_10/avg_3_100)*100)+"%")
 
+disp(x1)
+disp(x2)
+disp(x3)
+disp(y)
+
 scf(0);
 plot(y,x1,'r')
 plot(y,x2,'g')
@@ -161,8 +166,17 @@ plot(y,x3)
 xgrid
 xlabel('Nbre matrices')
 ylabel('Temps execution')
-legend('1 boucle','2 boucles','3 boucles',1)
-xs2pdf(gcf(),'foo.pdf');
+legend('3 boucles','2 boucles','1 boucle',2)
+xs2pdf(gcf(),'boucles123');
+
+scf(1);
+plot(y,x2,'g')
+plot(y,x3)
+xgrid
+xlabel('Nbre matrices')
+ylabel('Temps execution')
+legend('2 boucles','1 boucle',2)
+xs2pdf(gcf(),'boucles12');
 /*
 avg = 0
 for i = 1 : 10
